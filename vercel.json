@@ -1,0 +1,37 @@
+export default function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  const categories = ['Plastic', 'Paper', 'Metal', 'Glass', 'Organic', 'General Waste'];
+  const recommended = {
+    Plastic: '♻️ Plastic Bin',
+    Paper: '📄 Paper Bin',
+    Metal: '🥫 Metal Bin',
+    Glass: '🍾 Glass Bin',
+    Organic: '🌱 Organic/Wet Waste Bin',
+    'General Waste': '🗑️ General Waste Bin'
+  };
+
+  const payload = req.body || {};
+  const category = payload.category || categories[Math.floor(Math.random() * categories.length)];
+  const confidence = Number(payload.confidence || (80 + Math.random() * 18).toFixed(1));
+
+  res.status(200).json({
+    waste_type: category,
+    confidence,
+    recommended_bin: recommended[category] || '🗑️ General Waste Bin',
+    status_message: 'Demo classification completed successfully.',
+    is_low_confidence: confidence < 60,
+    model_name: 'Demo deployment model',
+    detected_object: 'Waste item',
+    class_probabilities: {
+      Plastic: category === 'Plastic' ? confidence : 100 - confidence,
+      Paper: category === 'Paper' ? confidence : 100 - confidence,
+      Metal: category === 'Metal' ? confidence : 100 - confidence,
+      Glass: category === 'Glass' ? confidence : 100 - confidence,
+      Organic: category === 'Organic' ? confidence : 100 - confidence,
+      'General Waste': category === 'General Waste' ? confidence : 100 - confidence
+    }
+  });
+}

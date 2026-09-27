@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Smart Waste Management</title>
+    <meta
+      name="description"
+      content="AI Smart Waste Management System demo website for waste classification and smart recycling guidance."
+    />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='78' font-size='76'%3E%F0%9F%99%82%3C/text%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <div class="brand">
+          <div class="brand-mark">♻️</div>
+          <div>
+            <div class="brand-name">AI Smart Waste</div>
+            <div class="brand-subtitle">Smart Recycling System</div>
+          </div>
+        </div>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="#overview">Overview</a>
+          <a href="#features">Features</a>
+          <a href="#bins">Bins</a>
+          <a href="#dashboard">Dashboard</a>
+        </nav>
+
+        <a class="button button-primary" href="#dashboard">Launch Demo</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow">AI-powered waste sorting</span>
+            <h1>Build cleaner cities with smarter recycling.</h1>
+            <p>
+              Detect waste in real time, recommend the correct bin, and turn classroom or
+              campus recycling into a data-driven sustainability system.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="#dashboard">View Demo Dashboard</a>
+              <a class="button button-ghost" href="#features">Learn More</a>
+            </div>
+
+            <ul class="hero-points">
+              <li>Real-time waste classification</li>
+              <li>Zero-GPU local inference</li>
+              <li>Smart bin recommendation</li>
+            </ul>
+          </div>
+
+          <div class="panel hero-panel">
+            <div class="panel-header">
+              <span class="status-dot online"></span>
+              <span>System Active</span>
+            </div>
+
+            <div class="bins-grid">
+              <div class="bin-card blue">
+                <span class="bin-icon">♻️</span>
+                <div>
+                  <strong>Plastic</strong>
+                  <small>Blue bin</small>
+                </div>
+              </div>
+              <div class="bin-card cyan">
+                <span class="bin-icon">📄</span>
+                <div>
+                  <strong>Paper</strong>
+                  <small>Cyan bin</small>
+                </div>
+              </div>
+              <div class="bin-card amber">
+                <span class="bin-icon">🥫</span>
+                <div>
+                  <strong>Metal</strong>
+                  <small>Yellow bin</small>
+                </div>
+              </div>
+              <div class="bin-card green">
+                <span class="bin-icon">🌱</span>
+                <div>
+                  <strong>Organic</strong>
+                  <small>Green bin</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="overview" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Overview</span>
+            <h2>Built for smart campuses and sustainable operations.</h2>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card panel">
+              <div class="feature-icon">📷</div>
+              <h3>Real-time camera intake</h3>
+              <p>Classify waste from live webcam frames or uploaded images using computer vision.</p>
+            </article>
+
+            <article class="feature-card panel">
+              <div class="feature-icon">🧠</div>
+              <h3>Deep learning model</h3>
+              <p>Leverages MobileNetV2-style CNN logic and OpenCV material cues for fast classification.</p>
+            </article>
+
+            <article class="feature-card panel">
+              <div class="feature-icon">📊</div>
+              <h3>Live analytics</h3>
+              <p>Tracks category counts, recycling performance, and recent detection history over time.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="section muted">
+        <div class="container compact-grid">
+          <div class="text-block">
+            <span class="eyebrow">Why it matters</span>
+            <h2>Reduce contamination and improve sorting accuracy.</h2>
+            <p>
+              The system helps users identify correct disposal paths before waste is discarded,
+              reducing contamination and improving recycling yields.
+            </p>
+          </div>
+
+          <div class="check-list panel">
+            <h3>Included capabilities</h3>
+            <ul>
+              <li>✅ Waste type recognition across six categories</li>
+              <li>✅ Eco tips and disposal instructions</li>
+              <li>✅ SQLite-backed tracking and analytics</li>
+              <li>✅ Swagger-style API documentation</li>
+              <li>✅ Responsive dashboard for web and demo use</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="bins" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Smart bins</span>
+            <h2>Recommended disposal categories</h2>
+          </div>
+
+          <div id="bin-rules" class="rules-grid"></div>
+        </div>
+      </section>
+
+      <section id="dashboard" class="section dashboard-section">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Demo dashboard</span>
+            <h2>Waste insights</h2>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card panel">
+              <span class="stat-label">Total detections</span>
+              <strong id="stat-total">0</strong>
+            </div>
+            <div class="stat-card panel">
+              <span class="stat-label">Today</span>
+              <strong id="stat-today">0</strong>
+            </div>
+            <div class="stat-card panel">
+              <span class="stat-label">Top category</span>
+              <strong id="stat-top">None yet</strong>
+            </div>
+            <div class="stat-card panel">
+              <span class="stat-label">Recyclable share</span>
+              <strong id="stat-recyclable">0%</strong>
+            </div>
+          </div>
+
+          <div class="demo-layout">
+            <div class="panel prediction-panel">
+              <div class="panel-header">
+                <span class="status-dot online"></span>
+                <span>AI Prediction</span>
+              </div>
+
+              <div class="camera-box">
+                <div class="camera-placeholder">
+                  <div class="camera-icon">📷</div>
+                  <p>Webcam preview is shown in the full app. This Vercel demo uses a mock inference layer.</p>
+                </div>
+              </div>
+
+              <div class="predict-actions">
+                <button id="predict-button" class="button button-primary" type="button">Run Demo Scan</button>
+                <button id="reset-button" class="button button-ghost" type="button">Reset</button>
+              </div>
+
+              <div id="prediction-result" class="prediction-result">
+                <div class="result-header">
+                  <span>Latest result</span>
+                  <span id="result-category">Waiting...</span>
+                </div>
+                <div class="result-metrics">
+                  <span>Confidence: <strong id="result-confidence">0%</strong></span>
+                  <span>Bin: <strong id="result-bin">-</strong></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel history-panel">
+              <div class="panel-header">
+                <span class="status-dot online"></span>
+                <span>Recent detections</span>
+              </div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Confidence</th>
+                    <th>Bin</th>
+                  </tr>
+                </thead>
+                <tbody id="history-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© 2026 AI Smart Waste Management</p>
+        <a href="https://vercel.com" target="_blank" rel="noreferrer">Powered by Vercel</a>
+      </div>
+    </footer>
+
+    <script src="/script.js"></script>
+  </body>
+</html>
