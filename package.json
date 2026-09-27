@@ -1,0 +1,13 @@
+{
+  "name": "smart-waste-ai-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for AI Smart Waste Management System - Deployed to Vercel",
+  "private": true,
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "keywords": ["waste", "recycling", "ai", "classification"],
+  "author": "navjotxsidhu0008-jpg",
+  "license": "MIT"
+}
